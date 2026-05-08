@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2026 The Stdlib Authors.
+* Copyright (c) 2025 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,23 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var serialize = require( '@stdlib/ndarray-base-serialize-meta-data' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var addon = require( './../src/addon.node' );
-
-
-// MAIN //
+import { float32ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the range of a one-dimensional single-precision floating-point ndarray.
 *
-* @private
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing an input ndarray
-* @returns {number} range
+* @param arrays - array-like object containing an input ndarray
+* @returns range
 *
 * @example
 * var Float32Array = require( '@stdlib/array-float32' );
@@ -44,12 +38,9 @@ var addon = require( './../src/addon.node' );
 * var v = srange( [ x ] );
 * // returns 3.0
 */
-function srange( arrays ) {
-	var x = arrays[ 0 ];
-	return addon( getData( x ), serialize( x ) );
-}
+declare function srange( arrays: [ float32ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = srange;
+export = srange;
